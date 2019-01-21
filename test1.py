@@ -1,5 +1,6 @@
 from tabulate import tabulate
 
+
 def test1():
     myList = ['cat', 'dog', 'duck']
 
@@ -14,12 +15,13 @@ def test1():
 def test2():
     print(tabulate([['Alice', 24], ['Bob', 19]], headers=['Name', 'Age']))
 
+
 def test3():
-    colomns = []
+    columns = []
     ans = ''
     menu = "Введите через запятую имя и возраст. Если хотите закончить, введите 'end'\n"
     while ans != 'end':
-        ans: str = input(menu)
+        ans = input(menu)
         if ans == 'end':
             print('Exit from the app')
             break
@@ -36,16 +38,16 @@ def test3():
                     print('Just one arg')
 
                 if isinstance(ans_words[1], int):
-                    colomns.append(ans_words)
+                    columns.append(ans_words)
 
             else:
                     print('Don\'t recognized format')
 
-    print(tabulate(colomns, headers=['Name', 'Age']))
+    print(tabulate(columns, headers=['Name', 'Age']))
 
 
 def test4():
     pass
 
 
-test4()
+test3()
