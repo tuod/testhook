@@ -17,6 +17,9 @@ def test2():
 
 
 def test3():
+    """
+    It's a test doc
+    """
     table_columns = []
     user_answer = ''
     menu = "Введите через запятую имя и возраст. Если хотите закончить, введите 'end'\n"
@@ -41,12 +44,15 @@ def test3():
                     table_columns.append(ans_words)
 
             else:
-                    print('Don\'t recognized format')
+                print('Don\'t recognized format')
 
-    print(tabulate(table_columns, headers=['Name', 'Age']))
+    print(tabulate(table_columns, headers=['Name', 'Age'], showindex="always"))
 
 
 def test4():
+    """
+
+    """
     pass
 
 
