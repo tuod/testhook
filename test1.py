@@ -2,14 +2,14 @@ from tabulate import tabulate
 
 
 def test1():
-    myList = ['cat', 'dog', 'duck']
+    my_list = ['cat', 'dog', 'duck']
 
-    for elem in myList[:]:
+    for elem in my_list[:]:
         if len(elem) > 3:
             print(elem)
-            myList.append(elem)
+            my_list.append(elem)
 
-    print(myList)
+    print(my_list)
 
 
 def test2():
@@ -17,16 +17,16 @@ def test2():
 
 
 def test3():
-    columns = []
-    ans = ''
+    table_columns = []
+    user_answer = ''
     menu = "Введите через запятую имя и возраст. Если хотите закончить, введите 'end'\n"
-    while ans != 'end':
-        ans = input(menu)
-        if ans == 'end':
+    while user_answer != 'end':
+        user_answer = input(menu)
+        if user_answer == 'end':
             print('Exit from the app')
             break
         else:
-            ans_words = ans.replace(' ', '').split(',')
+            ans_words = user_answer.replace(' ', '').split(',')
 
             if len(ans_words) == 2:
                 try:
@@ -38,12 +38,12 @@ def test3():
                     print('Just one arg')
 
                 if isinstance(ans_words[1], int):
-                    columns.append(ans_words)
+                    table_columns.append(ans_words)
 
             else:
                     print('Don\'t recognized format')
 
-    print(tabulate(columns, headers=['Name', 'Age']))
+    print(tabulate(table_columns, headers=['Name', 'Age']))
 
 
 def test4():
