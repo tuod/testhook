@@ -25,7 +25,8 @@ def test3():
     """
     table_columns = []
     user_answer = ''
-    menu = "Введите через запятую имя и возраст. Если хотите закончить, введите 'end'\n"
+    menu = "Введите через запятую имя и возраст. " \
+           "Если хотите закончить, введите 'end'\n"
     while user_answer != 'end':
         user_answer = input(menu)
         if user_answer == 'end':
@@ -49,13 +50,9 @@ def test3():
             else:
                 print('Don\'t recognized format')
 
-    print(tabulate(table_columns, headers=['Name', 'Age'], showindex="always"))
-
-
-def test4():
-    """
-
-    """
-    pass
-
-
+    print(
+        tabulate(
+            table_columns,
+            headers=['Name', 'Age'],
+            showindex="always")
+    )
