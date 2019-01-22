@@ -1,8 +1,11 @@
+from typing import List
+
 from tabulate import tabulate
 
 
 def test1():
-    my_list = ['cat', 'dog', 'duck']
+    cat_dog_duck: List[str] = ['cat', 'dog', 'duck']
+    my_list = cat_dog_duck
 
     for elem in my_list[:]:
         if len(elem) > 3:
@@ -56,4 +59,3 @@ def test4():
     pass
 
 
-test3()
