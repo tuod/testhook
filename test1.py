@@ -56,3 +56,6 @@ def test3():
             headers=['Name', 'Age'],
             showindex="always")
     )
+
+
+test3()
