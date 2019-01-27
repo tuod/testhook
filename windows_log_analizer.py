@@ -1,12 +1,13 @@
 import uuid
+from typing import Dict, List, Set
 
 from tabulate import tabulate
 
 
 def load_csv_logfile(log_file_path):
     columns = []
-    log_data = {}
-    event_types = set()
+    my_log_data: Dict[str, List[List[str]]] = {}
+    my_event_types: Set[str] = set()
     try:
         log_file = open(log_file_path, encoding='utf-8-sig')
     except FileNotFoundError:
@@ -23,18 +24,18 @@ def load_csv_logfile(log_file_path):
                     partitioned_line = current_line.strip().split(',')
                     if len(partitioned_line) == 6:  # It's header string
                         # Separate set for event types
-                        event_types.add(partitioned_line[0])
+                        my_event_types.add(partitioned_line[0])
                         # New event - new UUID
                         current_uuid = uuid.uuid4().hex
                         # Add dictionary record (list) with UUID key
-                        log_data[current_uuid] = [partitioned_line]
+                        my_log_data[current_uuid] = [partitioned_line]
                     else:
                         # Append linked log rows as list elements
-                        log_data[current_uuid].append(partitioned_line)
+                        my_log_data[current_uuid].append(partitioned_line)
                 i += 1
         finally:
             log_file.close()
-    return [columns, log_data, event_types]
+    return [columns, my_log_data, my_event_types]
 
 
 columns_list, log_data, event_types = \
